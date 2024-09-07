@@ -83,14 +83,6 @@ def load_data_to_bq(
     print(Fore.BLUE + f"\nSave data to BigQuery @ {full_table_name}...:" + Style.RESET_ALL)
 
     # Load data onto full_table_name
-
-    # 🎯 HINT for "*** TypeError: expected bytes, int found":
-    # After preprocessing the data, your original column names are gone (print it to check),
-    # so ensure that your column names are *strings* that start with either 
-    # a *letter* or an *underscore*, as BQ does not accept anything else
-
-    # TODO: simplify this solution if possible, but students may very well choose another way to do it
-    # We don't test directly against their own BQ tables, but only the result of their query
     data.columns = [f"_{column}" if not str(column)[0].isalpha() and not str(column)[0] == "_" else str(column) for column in data.columns]
 
     client = bigquery.Client()

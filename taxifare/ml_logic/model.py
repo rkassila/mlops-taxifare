@@ -28,7 +28,8 @@ def initialize_model(input_shape: tuple) -> Model:
     model.add(layers.BatchNormalization(momentum=0.9))
     model.add(layers.Dropout(rate=0.1))
     model.add(layers.Dense(50, activation="relu"))
-    model.add(layers.BatchNormalization(momentum=0.9))  # use momentum=0 to only use statistic of the last seen minibatch in inference mode ("short memory"). Use 1 to average statistics of all seen batch during training histories.
+    model.add(layers.BatchNormalization(momentum=0.9))
+    # use momentum=0 to only use statistic of the last seen minibatch in inference mode ("short memory"). Use 1 to average statistics of all seen batch during training histories.
     model.add(layers.Dropout(rate=0.1))
     model.add(layers.Dense(1, activation="linear"))
 
