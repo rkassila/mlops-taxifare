@@ -26,3 +26,4 @@ id_rsa.pub
 tests/
 
 Makefile_local
+Makefile
