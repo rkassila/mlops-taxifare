@@ -16,7 +16,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     df = df.astype(DTYPES_RAW)
 
     # Remove buggy transactions
-    df = df.drop_duplicates()  # TODO: handle whether data is consumed in chunks directly in the data source
+    df = df.drop_duplicates()
     df = df.dropna(how='any', axis=0)
 
     df = df[(df.dropoff_latitude != 0) | (df.dropoff_longitude != 0) |
